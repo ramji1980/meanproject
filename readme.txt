@@ -10,4 +10,10 @@ To Run the Client:
 
 To use the Mongo DB:
 
+To create Mongo db
+
+DB Name: firstproject
+
+collection name: contactus and employee
+
 dbdump/firstproject

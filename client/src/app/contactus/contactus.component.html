@@ -1,0 +1,42 @@
+<div class="jumbotron">
+  <h1> Contact Us</h1>
+  </div>
+  <div class="container">
+      <div class="rows">
+          <div class="col-sm-5">
+           <section>
+             <article>   
+                <p>10 c SS Apartment 2nd Floor<br/>
+                  Burkit Road<br/>
+                  T.Nagar Chennai-600017</p>  
+              </article>
+             </section> 
+         </div>
+        </div> 
+  </div> 
+  <div class="rows">
+  <div class="col-sm-5">
+  <form [formGroup]="contactForm" (ngSubmit)="addContact()">
+      <div  class="form-group" [ngClass]="{'has-error':!contactForm.controls['contactname'].valid && contactForm.controls['contactname'].touched}">
+       <label>Contact Name</label>
+        <input  class="form-control" type="text"  placeholder="Contact Name" [formControl]="contactForm.controls['contactname']">
+        <div *ngIf="contactForm.controls['contactname'].hasError('required') && contactForm.controls['contactname'].touched" class="alert alert-danger">Please Enter Contact Name</div>
+        <div *ngIf=" contactForm.controls['contactname'].hasError('minlength') && contactForm.controls['contactname'].touched" class="alert alert-danger">Your Contact Name must be at least 3 characters long.</div>
+        <div *ngIf=" contactForm.controls['contactname'].hasError('maxlength') && contactForm.controls['contactname'].touched" class="alert alert-danger">Your Contact Name cannot exceed 25 characters long.</div>
+      </div>
+      <div  class="form-group" [ngClass]="{'has-error':!contactForm.controls['contactemail'].valid && contactForm.controls['contactemail'].touched}">
+        <label>Contact Email</label>
+         <input  class="form-control" type="text"  placeholder="Contact Email" [formControl]="contactForm.controls['contactemail']">
+         <div *ngIf="contactForm.controls['contactemail'].hasError('required') && contactForm.controls['contactemail'].touched" class="alert alert-danger">Please Enter Contact Email</div>
+       </div>
+      <div class="form-group" [ngClass]="{'has-error':!contactForm.controls['contactmessage'].valid && contactForm.controls['contactmessage'].touched}">
+          <label>Contact Message</label>
+          <textarea class="form-control" type="text" placeholder="Contact Message" [formControl]="contactForm.controls['contactmessage']" cols="4" rows="10"></textarea>
+          <div *ngIf="contactForm.controls['contactmessage'].hasError('required') && contactForm.controls['contactmessage'].touched" class="alert alert-danger">Please Enter Contact Message</div>
+        </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid">{{buttonname}}</button>
+    </div>
+    </form>
+  </div>
+</div>   

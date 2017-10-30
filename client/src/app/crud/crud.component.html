@@ -1,0 +1,42 @@
+<div class="jumbotron">
+  <h1> Add</h1>
+  </div>
+ 
+    <div class="rows">
+    <div class="col-sm-5">
+      <div><span>{{status}}</span></div>
+    <form [formGroup]="crudForm" (ngSubmit)="addCrud()">
+        <div  class="form-group" [ngClass]="{'has-error':!crudForm.controls['firstName'].valid && crudForm.controls['firstName'].touched}">
+         <label>First Name</label>
+          <input  class="form-control" type="text"  placeholder="First Name" [formControl]="crudForm.controls['firstName']">
+          <div *ngIf="crudForm.controls['firstName'].hasError('required') && crudForm.controls['firstName'].touched" class="alert alert-danger">Please Enter First Name</div>
+          <div *ngIf=" crudForm.controls['firstName'].hasError('minlength') && crudForm.controls['firstName'].touched" class="alert alert-danger">Your First Name must be at least 5 characters long.</div>
+          <div *ngIf=" crudForm.controls['firstName'].hasError('maxlength') && crudForm.controls['firstName'].touched" class="alert alert-danger">Your First Name cannot exceed 50 characters long.</div>
+        </div>
+        <div  class="form-group" [ngClass]="{'has-error':!crudForm.controls['lastName'].valid && crudForm.controls['firstName'].touched}">
+          <label>Last Name</label>
+           <input  class="form-control" type="text"  placeholder="Last Name" [formControl]="crudForm.controls['lastName']">
+           <div *ngIf="crudForm.controls['lastName'].hasError('required') && crudForm.controls['lastName'].touched" class="alert alert-danger">Please Enter Last Name</div>
+           <div *ngIf=" crudForm.controls['lastName'].hasError('minlength') && crudForm.controls['lastName'].touched" class="alert alert-danger">Your Last Name must be at least 5 characters long.</div>
+           <div *ngIf=" crudForm.controls['lastName'].hasError('maxlength') && crudForm.controls['lastName'].touched" class="alert alert-danger">Your Last Name cannot exceed 50 characters long.</div>
+         </div>
+        <div  class="form-group" [ngClass]="{'has-error':!crudForm.controls['empemail'].valid && crudForm.controls['empemail'].touched}">
+          <label>Email</label>
+           <input  class="form-control" type="text"  placeholder="Email" [formControl]="crudForm.controls['empemail']">
+           <div *ngIf="crudForm.controls['empemail'].hasError('required') && crudForm.controls['empemail'].touched" class="alert alert-danger">Please Enter Correct Email</div>
+         </div>
+        <div class="form-group" [ngClass]="{'has-error':!crudForm.controls['mobile'].valid && crudForm.controls['mobile'].touched}">
+            <label>Mobile</label>
+            <input class="form-control" type="text" placeholder="Mobile" [formControl]="crudForm.controls['mobile']">
+            <div *ngIf="crudForm.controls['mobile'].hasError('required') && crudForm.controls['mobile'].touched" class="alert alert-danger">Please Enter Mobile</div>
+            <div *ngIf=" crudForm.controls['mobile'].hasError('minlength') && crudForm.controls['mobile'].touched" class="alert alert-danger">Your Mobile must be at least 10 characters long.</div>
+            <div *ngIf=" crudForm.controls['mobile'].hasError('maxlength') && crudForm.controls['mobile'].touched" class="alert alert-danger">Your Mobile cannot exceed 10 characters long.</div>
+          </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" [disabled]="!crudForm.valid">{{buttonname}}</button>
+      </div>
+      </form>
+    </div>
+  </div>   
+
+  

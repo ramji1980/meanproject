@@ -78,7 +78,7 @@ crud.listCrud = function (request, callback) {
             /*collections.find(request.query).skip(request.index).limit(request.limit).toArray((err, res) => {
                 return callback(null,res);
             });*/
-            collections.find(request.query).toArray((err, res) => {
+            collections.find(request.query).sort({_id:-1}).toArray((err, res) => {
                // console.log(res);
             return callback(null,res);
             });

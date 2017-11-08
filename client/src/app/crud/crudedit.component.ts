@@ -30,11 +30,12 @@ export class CrudeditComponent implements OnInit {
   constructor(fb:FormBuilder,private crudService:CrudService, private router: Router,
     private route: ActivatedRoute) { 
       let emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
+      let MobileRegex='[0-9]*';
     this.crudForm=fb.group({
         'firstName':['',[Validators.required,Validators.minLength(5),Validators.maxLength(50)]],
         'lastName':['',[Validators.required,Validators.minLength(5),Validators.maxLength(50)]],
         'empemail':['',[Validators.required,Validators.pattern(emailRegex)]],
-        'mobile':['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]]
+        'mobile':['',[Validators.required,Validators.minLength(10),Validators.maxLength(10),Validators.pattern(MobileRegex)]]
        
       })
   }

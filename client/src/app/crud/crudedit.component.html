@@ -24,6 +24,7 @@
             <label>Email</label>
              <input  class="form-control" type="text" [(ngModel)]="femail" placeholder="Email" [formControl]="crudForm.controls['empemail']">
              <div *ngIf="crudForm.controls['empemail'].hasError('required') && crudForm.controls['empemail'].touched" class="alert alert-danger">Please Enter Email</div>
+             <div *ngIf="crudForm.controls['empemail'].hasError('pattern') && crudForm.controls['empemail'].touched" class="alert alert-danger">Please Enter a Valid Email</div>
            </div>
           <div class="form-group" [ngClass]="{'has-error':!crudForm.controls['mobile'].valid && crudForm.controls['mobile'].touched}">
               <label>Mobile</label>
@@ -31,6 +32,7 @@
               <div *ngIf="crudForm.controls['mobile'].hasError('required') && crudForm.controls['mobile'].touched" class="alert alert-danger">Please Enter Mobile</div>
               <div *ngIf=" crudForm.controls['mobile'].hasError('minlength') && crudForm.controls['mobile'].touched" class="alert alert-danger">Your Mobile must be at least 10 characters long.</div>
               <div *ngIf=" crudForm.controls['mobile'].hasError('maxlength') && crudForm.controls['mobile'].touched" class="alert alert-danger">Your Mobile cannot exceed 10 characters long.</div>
+              <div *ngIf=" crudForm.controls['mobile'].hasError('pattern') && crudForm.controls['mobile'].touched" class="alert alert-danger">Your Mobile number should be only number.</div>
             </div>
            
         <div class="form-group">            
